@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/TestDrivenDevelopment.iml" filepath="$PROJECT_DIR$/TestDrivenDevelopment.iml" />
-      <module fileurl="file://$PROJECT_DIR$/tdd-java-tic-tac-toe.iml" filepath="$PROJECT_DIR$/tdd-java-tic-tac-toe.iml" />
     </modules>
   </component>
 </project>
