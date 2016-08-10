@@ -3,12 +3,29 @@
  */
 public class TicTacToe {
 
+    private char[][] board = {{'\0','\0','\0'},{'\0','\0','\0'},{'\0','\0','\0'}};
+
     public void play(int x, int y){
 
-        if(x < 1 || x > 3){
-            throw new RuntimeException("X is outside of board");
-        }else if(y < 1 || y > 3){
-            throw new RuntimeException("Y is outside of board");
+        checkAxis(x);
+        checkAxis(y);
+
+        setBoard(x,y);
+
+    }
+
+    private void checkAxis(int axis){
+        if(axis < 1 || axis > 3){
+            throw new RuntimeException("Piece is outside of board");
         }
     }
+
+    private void setBoard(int x, int y){
+        if(board[x-1][y-1] != '\0'){
+            throw new RuntimeException("Box is occupied");
+        }else {
+            board[x-1][y-1] = 'X';
+        }
+    }
+
 }

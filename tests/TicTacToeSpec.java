@@ -32,9 +32,9 @@ public class TicTacToeSpec {
     @Test
     public void whenOccupiedThenRuntimeException(){
 
-//        ticTacToe.play(2,1);
-//        exception.expect(RuntimeException.class);
-//        ticTacToe.play(2,1);
+        ticTacToe.play(2,1);
+        exception.expect(RuntimeException.class);
+        ticTacToe.play(2,1);
 
     }
 
