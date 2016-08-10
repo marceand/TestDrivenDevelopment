@@ -1,3 +1,4 @@
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -37,6 +38,22 @@ public class TicTacToeSpec {
         ticTacToe.play(2,1);
 
     }
+
+    @Test
+    public void givenFirstTurnWhenNextPlayerThenX(){
+        char expectedPlayer = 'X';
+        Assert.assertEquals(expectedPlayer, ticTacToe.nextPlayer());
+    }
+
+    @Test
+    public void givenLastTurnWasXWhenNextPlayerThenO(){
+        char expectedPlayer = 'O';
+
+        ticTacToe.play(1,1);
+
+        Assert.assertEquals(expectedPlayer, ticTacToe.nextPlayer());
+    }
+
 
 
 }
