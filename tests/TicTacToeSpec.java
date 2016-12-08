@@ -47,6 +47,7 @@ public class TicTacToeSpec {
 
     @Test
     public void givenLastTurnWasXWhenNextPlayerThenO(){
+
         char expectedPlayer = 'O';
 
         ticTacToe.play(1,1);
@@ -54,6 +55,71 @@ public class TicTacToeSpec {
         Assert.assertEquals(expectedPlayer, ticTacToe.nextPlayer());
     }
 
+    @Test
+    public void whenPlayNoWinner(){
 
+        String expectedNoWinner = "No winner";
+
+        String actualNoWinner = ticTacToe.play(1,1);
+
+        Assert.assertEquals(expectedNoWinner, actualNoWinner);
+    }
+
+    @Test
+    public void whenPlayAndWholeHorizontalLineThenWinner(){
+
+        String expectedWinner = "X is the winner";
+
+        ticTacToe.play(1,1); // X
+        ticTacToe.play(2,1); // O
+        ticTacToe.play(1,2); // X
+        ticTacToe.play(2,2); // O
+        String actualWinner = ticTacToe.play(1,3); // X
+
+        Assert.assertEquals(expectedWinner, actualWinner);
+    }
+
+    @Test
+    public void whenPlayAndWholeVerticalLineThenWinner(){
+
+        String expectedWinner = "O is the winner";
+
+        ticTacToe.play(1,2); // X
+        ticTacToe.play(1,1); // O
+        ticTacToe.play(1,3); // X
+        ticTacToe.play(2,1); // O
+        ticTacToe.play(2,2); // X
+        String actualWinner = ticTacToe.play(3,1); // O
+
+        Assert.assertEquals(expectedWinner, actualWinner);
+    }
+
+    @Test
+    public void whenPlayAndTopBottomDiagonalLineThenWinner(){
+
+        String expectedWinner = "X is the winner";
+
+        ticTacToe.play(1,1); // X
+        ticTacToe.play(1,2); // O
+        ticTacToe.play(2,2); // X
+        ticTacToe.play(1,3); // O
+        String actualWinner = ticTacToe.play(3,3); // X
+
+        Assert.assertEquals(expectedWinner, actualWinner);
+    }
+
+    @Test
+    public void whenPlayAndBottomTopDiagonalLineThenWinner(){
+
+        String expectedWinner = "X is the winner";
+
+        ticTacToe.play(3,1); // X
+        ticTacToe.play(1,2); // O
+        ticTacToe.play(2,2); // X
+        ticTacToe.play(3,3); // O
+        String actualWinner = ticTacToe.play(1,3); // X
+
+        Assert.assertEquals(expectedWinner, actualWinner);
+    }
 
 }
